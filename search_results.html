@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+    <style>
+        body {
+                background-color: #28282B;
+                color: white;
+        }
+        h1 {
+            padding: 10px 15px;
+        }
+        ul {
+            font-size: 20px;
+        }
+        ul li  {
+            margin-top: 15px;
+        }
+        a {
+            text-decoration: none;
+            color: #0803FF;
+        }
+        p {
+            font-size: 18px;
+            padding: 8px 24px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <hr>
+    <p>Showing results for "{{ query }}"</p>
+
+    {% if results %}
+        <ul>
+        {% for post in results %}
+            <li><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+</body>
+</html>

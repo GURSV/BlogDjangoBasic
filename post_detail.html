@@ -1,0 +1,319 @@
+<!-- templates/blog/post_detail.html -->
+
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post Detail</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            margin-bottom: 10px;
+        }
+        p {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Post Detail</h1>
+    <div class="post">
+        <h2>{{ post.title }}</h2>
+        <p>{{ post.pub_date }}</p>
+        <p>{{ post.content }}</p>
+    </div>
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Post Detail</title>
+    <style>
+        body {
+            background-color: #28282B;
+            margin: 0;
+            padding: 0;
+        }
+        .container_1 {
+            max-width: 800px;
+            margin: 20px 100px;
+            padding: 20px;
+            padding-top: 10px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            font-family: 'Belanosima', monospace;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-top: 0;
+            padding: 20px 0;
+        }
+        .post {
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .post-date{
+            font-family: sans-serif;
+        }
+        .post h2 {
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        .post p {
+            color: #777;
+            margin-top: 0;
+        }
+        .post-content {
+            color: #333;
+            line-height: 1.6;
+        }
+        .post-link {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            padding: 8px 12px;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        .post-link:hover {
+            background-color: #555;
+        }
+        ul {
+            display: flex;
+            margin-left: 690px;
+            position: relative;
+            bottom: 24px;
+        }
+        ul li {
+            list-style: none;
+            margin-left: 54px;
+            font-size: 17px;
+            
+        }
+        ul a:hover {
+            color: #f5f5f5;
+            font-size: 19px;
+            transition: font-size 0.1s ease;
+        }
+        a {
+            text-decoration: none;
+            color: #000000;
+            font-family: 'Belanosima', monospace;
+        }
+        .navbar-brand {
+            font-size: 34px;
+            font-weight: bold;
+            position: relative;
+            top: 20px;
+            left: 32px
+        }
+        .btn-outline-success, .form-control {
+            position: relative;
+            left: 1222px;
+            bottom: 70px;
+            padding: 10px 14px;
+        }
+        .btn-outline-success {
+            color: #28a745;
+            border-color: #28a745;
+            border-radius: 4px;
+        }
+        .form-control {
+            width: 140px;
+            border-radius: 4px;
+        }
+        .mx-3 {
+            background-color: #808080;
+            height: 70px;
+        }
+        .container_comm {
+            margin-top: -190px;
+        }
+        .container_comm h2 {
+            margin-left: 98px;
+            font-family: 'Belanosima', monospace;
+            margin-bottom: 9px;
+            color: white;
+        }
+        #element {
+            font-size: 20px;
+            color: #0000FF;
+        }
+        .form-control_2 {
+            margin-left: 100px;
+        }
+        textarea {
+            width: 833px;
+            margin-top: 1px;
+        }
+        .btn-primary {
+            margin-left: 100px;
+            margin-top: 17px;
+            border-radius: 4px;
+            background-color: #4169E1;
+            padding: 8px 11px;
+            color: #ffffff
+            cursor: pointer;
+        }
+        .card{
+            box-shadow: 0 -1px 20px #cccccc;
+            color: white;
+            width: 300px;
+            position: relative;
+            left: 1000px;
+            padding-left: 20px;
+            padding-right: 30px;
+            padding-top: 1px;
+            padding-bottom: 10px;
+        }
+        .col-md-4 {
+            position: relative;
+            bottom: 530px;
+            font-family: 'Belanosima', monospace;
+        }
+        .card h5 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            margin-top: 16px;
+        }
+        .know_btn {
+            padding: 7px;
+            background-color: #ff0000;
+            color: #ffffff;
+            border-radius: 4px;
+        }
+        .m-0 {
+            margin-top: 10px;
+            margin-bottom: 0px;
+            padding: 15px 0px;
+            margin-left: 550px;
+        }
+        .foot_1 {
+            background-color: #999999;
+            font-family: 'Belanosima', monospace;
+            margin-top: 30px;
+            padding-bottom: 8px;
+        }
+        .foot_1 hr {
+            width: 1465px;
+        }
+        .py-3 hr {
+            position: relative;
+            bottom: 250px;
+            width: 1400px;
+        }
+        .foot_1 {
+            margin-top: 100px;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script>
+        function printText() {
+            var comment = document.getElementById('floatingTextarea2').value;
+            if (comment != ""){
+            alert("We acknowledge your feedback: '" + comment + "'.");
+            }
+            else{
+            alert("Sadly you didn't commented :(");
+            }
+        }
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+     <div class="container-fluid">
+       <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <div class="container mx-3">
+         <a class="navbar-brand" href="#">Gurmehar Blogs</a>
+         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+           <li class="nav-item">
+             <a class="nav-link {% block homeactive %} {% endblock homeactive %}" aria-current="page" href="/">Home</a>
+           </li>
+           <li class="nav-item">
+              <a href="{% url 'login' %}">Login</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link {% block profileactive %} {% endblock profileactive %}" href="/profile/">Profile</a>
+           </li>
+           <li class="nav-item">
+             <a class="nav-link" href="https://github.com/GURSV" target="_blank">Github</a>
+           </li>
+         </ul>
+         <form class="d-flex" action="{% url 'search' %}" method="GET">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+         <form class="d-flex">
+         </form>
+      </div>
+    </div>
+   </nav>
+   
+    <div class="container_1">
+        <h1>Post Detail</h1>
+        <div class="post">
+            <h2>{{ post.title }}</h2>
+            <p class="post-date">{{ post.pub_date }}</p>
+            <div class="post-content">{{ post.content }}</div>
+        </div>
+    </div>
+    
+    {% block sidebar %}
+    <!-- Sidebar Widgets Column -->
+    <div class="col-md-4">
+        <div class="card my-4">
+            <h5 class="card-header">About Me</h5>
+            <div class="card-body">
+              <hr>
+              <div class="card-text">I am a UG Computer Science student at CCET, Chandigarh. And I have a passion for...</div>
+              <span id="element"></span>
+              <br>
+              <br>
+              <a href="https://gursv.github.io/CV/" target="_blank" class="btn btn-danger">
+                <button class="know_btn">Know more!</button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>        
+    {% endblock sidebar %}
+    
+      <br>
+      
+      {% load humanize %}
+      <div class="container_comm">
+
+            <h2>Add Comments Here</h2>
+                  <div class="form-floating">
+                        <textarea class="form-control_2" placeholder="Leave a comment here." id="floatingTextarea2"
+                              style="height: 100px" id="content" name="content"></textarea>
+                        <br>
+                        <a href="https://cancollab.com/wp-content/uploads/2018/05/blackboard-board-close-up-908301.jpg" target="_blank"><button onclick="printText()" class="btn-primary">Comment</button></a>
+                  </div>
+      </div>
+      
+      <footer class="py-3 bg-grey">
+          <hr>
+          <div class="foot_1">
+            <p class="m-0 text-dark text-center" style="position: relative;">&copy; 2024 Gurmehar Blogs | All rights reserved!</p>
+          </div>
+      </footer>
+      
+      <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+      <script>
+      var typed = new Typed('#element', {
+        strings: ['Web Developing', 'Graphic Designing', 'Web Designing', '&amp; Analyzing Data.'],
+        typeSpeed: 50,
+        loop: true,
+      });
+      </script>
+</body>
+</html>

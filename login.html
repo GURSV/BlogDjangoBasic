@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        @font-face {
+            font-family: 'Belanosima';
+            src: url('/static/fonts/belanosima.woff2') format('woff2'),
+                 url('/static/fonts/belanosima.woff') format('woff');
+            /* Add more font formats if available */
+        }
+        body {
+                background-color: #28282B;
+        }
+        h2 {
+            font-family: 'Belanosima', monospace;
+            font-size: 30px;
+            padding: 20px 52px;
+            background-color: #808080;
+            margin-top: 0px;
+        }
+        .form_1 {
+            height: 200px;
+            box-shadow: 0px 0px 19px 1px #e0e0e0;
+            margin: 70px 50px;
+            font-family: 'Belanosima', monospace;
+            font-size: 20px;
+            color: white;
+        }
+        hr {
+            position: relative;
+            bottom: 8px;
+        }
+        label {
+            margin: 20px 20px;
+        }
+        input {
+            margin: 20px 20px;
+        }
+        button {
+            font-family: 'Belanosima', monospace;
+            font-size: 16px;
+            border-radius: 4px;
+            width: 60px;
+            height: 30px;
+            background-color: #FFFFFF;
+            color: #28a745;
+            border-color: #28a745;
+            font-weight: bold;
+            position: relative;
+            top: 80px;
+            left: -350px
+        }
+        button:hover {
+            color: #FFFFFF;
+            background-color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <h2>Login</h2>
+    <hr>
+    <div class="form_1">
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <label for="username" class="un">Username:</label>
+            <input type="text" id="username" name="username" required>
+            <br>
+            <label for="password" class="pd">Password:</label>
+            <input type="password" id="password" name="password" required>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
